@@ -1,7 +1,6 @@
 from .base import FunctionalTest
 from selenium.webdriver.common.keys import Keys
 
-
 class ItemValidationTest(FunctionalTest):
     def test_cannot_add_empty_list_items(self):
        # 伊迪丝访问首页，不小心提交了一个空待办事项
