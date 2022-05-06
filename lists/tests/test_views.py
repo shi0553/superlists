@@ -10,9 +10,13 @@ from lists.models import Item, List
 # Create your tests here.
 
 class HomePageTest(TestCase):
-    def test_home_page_returns_correct_html(self):
+    def test_uses_home_template(self):
         response=self.client.get('/')
         self.assertTemplateUsed(response, 'home.html')
+
+    def test_home_page_uses_item_form(self):
+        response=self.client.get('/')
+        self.assertIsInstance(response.context['form'], ItemForm)
 
 class NewListTest(TestCase):
     def test_can_save_a_POST_request(self):
